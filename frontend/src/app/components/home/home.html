@@ -1,0 +1,277 @@
+<div class="home-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Higher Education Student Support System
+        </div>
+        <h1 class="hero-title">
+          Discover Scholarships Tailored to Your Academic Profile
+        </h1>
+        <p class="hero-subtitle">
+          Eliminate ambiguity in financial aid. Evaluate multi-factor eligibility across marks, income ceilings, education levels, domicile, and reservations through an intelligent, rule-based verification portal.
+        </p>
+
+        <div class="hero-actions">
+          <a routerLink="/eligibility-check" class="btn btn-primary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Check Your Eligibility Now
+          </a>
+          <a routerLink="/scholarships" class="btn btn-secondary btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Explore All Schemes
+          </a>
+        </div>
+
+        <div class="hero-guarantee">
+          <div class="guarantee-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            100% Free & Open Access
+          </div>
+          <div class="guarantee-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No Sensitive Data (No Aadhaar/Bank A/C Required)
+          </div>
+          <div class="guarantee-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Instant Rule-by-Rule Match Breakdown
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card / Quick Assessment Preview -->
+      <div class="hero-visual">
+        <div class="eligibility-card-preview card">
+          <div class="card-preview-header">
+            <div class="preview-tag">Live Demonstration Engine</div>
+            <div class="live-dot-container">
+              <span class="live-pulse"></span> Ready
+            </div>
+          </div>
+          <h3 class="preview-title">Automated Match Criteria</h3>
+          <p class="preview-sub">Evaluates your profile against individual scheme criteria in real-time:</p>
+          
+          <ul class="preview-rules-list">
+            <li>
+              <div class="rule-icon success">✓</div>
+              <div class="rule-text">
+                <strong>Academic Percentage</strong>
+                <span>Matches minimum cutoffs (50% to 80%+)</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon success">✓</div>
+              <div class="rule-text">
+                <strong>Annual Family Income Ceiling</strong>
+                <span>Validates limits from ₹2L to ₹8L per annum</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon success">✓</div>
+              <div class="rule-text">
+                <strong>Domicile & Education Level</strong>
+                <span>Telangana state & All India schemes</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-icon success">✓</div>
+              <div class="rule-text">
+                <strong>Reserved & Special Quotas</strong>
+                <span>Girls in STEM, Differently-Abled, EWS/Minority</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="preview-cta">
+            <a routerLink="/eligibility-check" class="btn btn-outline btn-sm">Start Evaluation &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Counters Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path><path d="M6 6h10"></path><path d="M6 10h10"></path></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">{{ totalScholarships || 12 }}</span>
+            <span class="stat-label">Listed Schemes</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">{{ totalMerit || 4 }}</span>
+            <span class="stat-label">Merit-Based Schemes</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">{{ totalMeans || 3 }}</span>
+            <span class="stat-label">Means / Need-Based</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon amber">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">{{ totalCategory || 3 }}</span>
+            <span class="stat-label">Category & Special Aid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section (4 Steps) -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Simple 4-Step Process</span>
+        <h2 class="section-title">How the Eligibility Engine Works</h2>
+        <p class="section-sub">Quickly find financial aid matching your qualifications in four transparent steps</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          </div>
+          <h4>Enter Academic Profile</h4>
+          <p>Fill basic information: course, percentage, state, and family income ceiling without any sensitive identifiers.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          </div>
+          <h4>Multi-Rule Comparison</h4>
+          <p>Our Express.js backend evaluates your profile against each scholarship's distinct minimum requirements.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h4>Transparent Explanations</h4>
+          <p>View why each scheme matched or failed with clear, human-readable explanations on marks, income, and quotas.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </div>
+          <h4>Direct Official Apply</h4>
+          <p>Access verified links to official government and CSR portals (NSP, ePASS, AICTE) or save schemes to review later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Scholarships Section -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="featured-header">
+        <div>
+          <span class="section-tag">Featured Schemes</span>
+          <h2 class="section-title">Popular Scholarship Opportunities</h2>
+        </div>
+        <a routerLink="/scholarships" class="btn btn-secondary">View All Scholarships &rarr;</a>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Connecting to backend API and loading scholarships...</p>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="errorMessage" class="error-banner card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <div>
+          <strong>Backend Connection Notice:</strong>
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+
+      <!-- Scholarship Cards Grid -->
+      <div *ngIf="!isLoading && featuredScholarships.length > 0" class="grid-2">
+        <div *ngFor="let item of featuredScholarships" class="scholarship-card card">
+          <div class="card-top">
+            <span class="category-tag">{{ item.category }}</span>
+            <div class="card-top-right">
+              <span *ngIf="item.isSampleData" class="sample-badge">Sample Data</span>
+              <button class="bookmark-btn" [class.saved]="bookmarkService.isSaved(item.id)" (click)="toggleBookmark($event, item.id)" title="Save for later">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <h3 class="card-title">{{ item.name }}</h3>
+          <p class="card-provider">{{ item.provider }}</p>
+          <p class="card-desc">{{ item.description }}</p>
+
+          <div class="card-specs">
+            <div class="spec-row">
+              <span class="spec-label">Education:</span>
+              <span class="spec-val">{{ item.educationLevels.join(', ') }}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Min Marks:</span>
+              <span class="spec-val">{{ item.minimumPercentage }}%</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Income Ceiling:</span>
+              <span class="spec-val">{{ item.maximumFamilyIncome ? '₹' + item.maximumFamilyIncome.toLocaleString('en-IN') : 'No Limit' }}</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Benefit:</span>
+              <span class="spec-val benefit-text">{{ item.benefit }}</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a [routerLink]="['/scholarships', item.id]" class="btn btn-outline btn-sm">View Full Details</a>
+            <a routerLink="/eligibility-check" class="btn btn-primary btn-sm">Check My Fit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-text">
+          <h2>Ready to Check Your Scholarship Eligibility?</h2>
+          <p>Fill out our simple form with your percentage, course, and income to see immediate results.</p>
+        </div>
+        <div class="cta-btn-wrapper">
+          <a routerLink="/eligibility-check" class="btn btn-primary btn-lg">Launch Eligibility Checker</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

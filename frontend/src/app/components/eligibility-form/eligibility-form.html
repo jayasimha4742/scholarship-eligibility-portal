@@ -1,0 +1,286 @@
+<div class="container form-page-container">
+  <!-- Page Header -->
+  <div class="form-header">
+    <span class="section-tag">Student Assessment</span>
+    <h1 class="page-title">Check Your Scholarship Eligibility</h1>
+    <p class="page-sub">
+      Provide your academic credentials and financial background below. Our backend algorithm will evaluate your fit against all configured scholarship criteria and report the exact breakdown of matching and non-matching conditions.
+    </p>
+  </div>
+
+  <!-- Privacy Safe Alert -->
+  <div class="privacy-banner card">
+    <div class="privacy-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    </div>
+    <div class="privacy-text">
+      <strong>Safe & Privacy-Protected Evaluation:</strong>
+      <p>This demonstration portal does not ask for or collect Aadhaar numbers, bank account details, OTPs, or passwords. Data is used solely for the multi-rule eligibility simulation.</p>
+    </div>
+  </div>
+
+  <!-- Quick Demo Profile Selector (Ideal for Viva Demonstration) -->
+  <div class="demo-selector-bar card">
+    <span class="demo-label">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      Quick Demo Presets:
+    </span>
+    <div class="demo-btns">
+      <button type="button" class="btn btn-secondary btn-sm" (click)="loadDemoProfile('telangana')">
+        🎓 Telangana B.Tech Student (ePASS Eligible)
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="loadDemoProfile('nsp_merit')">
+        🌟 High-Merit Student (NSP Central Sector)
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="loadDemoProfile('girl_stem')">
+        👩‍🎓 Female STEM Student (Pragati & Merit)
+      </button>
+    </div>
+  </div>
+
+  <!-- Error Message Alert -->
+  <div *ngIf="errorMessage" class="error-banner card">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+  <!-- The Main Form -->
+  <form (ngSubmit)="onSubmit()" class="eligibility-card-form card" #eligibilityForm="ngForm">
+    <!-- Section 1: Basic & Domicile Details -->
+    <div class="form-section">
+      <h3 class="section-heading">
+        <span class="step-badge">1</span>
+        Personal & Domicile Information
+      </h3>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="studentName">Student Full Name (Optional)</label>
+          <input
+            type="text"
+            id="studentName"
+            name="studentName"
+            [(ngModel)]="profile.name"
+            class="form-control"
+            placeholder="e.g. Rahul Sharma"
+          />
+          <small class="field-hint">Used for personalized report display only.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State of Residence <span class="required">*</span></label>
+          <select
+            id="state"
+            name="state"
+            [(ngModel)]="profile.state"
+            class="form-control"
+            required
+          >
+            <option *ngFor="let s of statesList" [value]="s">{{ s }}</option>
+          </select>
+          <small class="field-hint">Determines eligibility for state-specific schemes like Telangana ePASS.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select
+            id="gender"
+            name="gender"
+            [(ngModel)]="profile.gender"
+            class="form-control"
+          >
+            <option value="All">All / Not Specified</option>
+            <option value="Female">Female (Eligible for Pragati & Women Scholarships)</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="socialCategory">Social / Reservation Category <span class="required">*</span></label>
+          <select
+            id="socialCategory"
+            name="socialCategory"
+            [(ngModel)]="profile.socialCategory"
+            class="form-control"
+            required
+          >
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+          <small class="field-hint">Checked against caste-designated schemes (SC/ST/OBC/EWS/Minority).</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Academic Qualifications -->
+    <div class="form-section">
+      <h3 class="section-heading">
+        <span class="step-badge">2</span>
+        Academic Qualifications & Course
+      </h3>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="educationLevel">Current Education Level <span class="required">*</span></label>
+          <select
+            id="educationLevel"
+            name="educationLevel"
+            [(ngModel)]="profile.educationLevel"
+            class="form-control"
+            required
+          >
+            <option *ngFor="let lvl of educationLevels" [value]="lvl">{{ lvl }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="course">Course / Degree Name <span class="required">*</span></label>
+          <input
+            type="text"
+            id="course"
+            name="course"
+            [(ngModel)]="profile.course"
+            class="form-control"
+            placeholder="e.g. B.Tech Computer Science, B.Sc, MBBS, MBA"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="academicYear">Academic Year</label>
+          <input
+            type="text"
+            id="academicYear"
+            name="academicYear"
+            [(ngModel)]="profile.academicYear"
+            class="form-control"
+            placeholder="2026-2027"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="semesterOrYear">Semester / Year of Study</label>
+          <select
+            id="semesterOrYear"
+            name="semesterOrYear"
+            [(ngModel)]="profile.semesterOrYear"
+            class="form-control"
+          >
+            <option value="1st Year">1st Year (Fresh Admission)</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+            <option value="Final Year">Final Year</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="previousPercentage">
+            Previous Examination Percentage (%) <span class="required">*</span>
+          </label>
+          <div class="input-with-symbol">
+            <input
+              type="number"
+              id="previousPercentage"
+              name="previousPercentage"
+              [(ngModel)]="profile.previousPercentage"
+              class="form-control"
+              min="0"
+              max="100"
+              step="0.01"
+              placeholder="e.g. 78.50"
+              required
+            />
+            <span class="symbol">%</span>
+          </div>
+          <small class="field-hint">Cutoffs typically range between 50% and 80%+ depending on scheme.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Financial Background & Special Quotas -->
+    <div class="form-section">
+      <h3 class="section-heading">
+        <span class="step-badge">3</span>
+        Financial Background & Special Quotas
+      </h3>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="annualFamilyIncome">
+            Annual Family Income (in INR) <span class="required">*</span>
+          </label>
+          <div class="input-with-symbol">
+            <span class="symbol prefix">₹</span>
+            <input
+              type="number"
+              id="annualFamilyIncome"
+              name="annualFamilyIncome"
+              [(ngModel)]="profile.annualFamilyIncome"
+              class="form-control has-prefix"
+              min="0"
+              step="1000"
+              placeholder="e.g. 180000"
+              required
+            />
+          </div>
+          <small class="field-hint">
+            As certified on income certificate or ration card.
+            <strong *ngIf="profile.annualFamilyIncome">
+              (₹{{ profile.annualFamilyIncome | number:'1.0-0' }} per annum)
+            </strong>
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="disabilityStatus">Person with Benchmark Disability (PwD)?</label>
+          <select
+            id="disabilityStatus"
+            name="disabilityStatus"
+            [(ngModel)]="profile.disabilityStatus"
+            class="form-control"
+          >
+            <option value="No">No - Not Differently Abled</option>
+            <option value="Yes">Yes - Valid Disability Certificate (&ge; 40%)</option>
+          </select>
+          <small class="field-hint">Unlocks special schemes like AICTE Saksham.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="scholarshipType">Preferred Scholarship Category</label>
+          <select
+            id="scholarshipType"
+            name="scholarshipType"
+            [(ngModel)]="profile.scholarshipType"
+            class="form-control"
+          >
+            <option value="All">All Categories (Show Every Match)</option>
+            <option value="Merit-Based">Merit-Based Schemes</option>
+            <option value="Means-Based">Means / Need-Based Schemes</option>
+            <option value="Category-Based">Social Category & Reservation</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Submit and Reset Buttons -->
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="clearForm()" [disabled]="isSubmitting">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+        Clear Form
+      </button>
+
+      <button type="submit" class="btn btn-primary btn-lg" [disabled]="isSubmitting">
+        <span *ngIf="!isSubmitting">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          Check My Eligibility &rarr;
+        </span>
+        <span *ngIf="isSubmitting" class="loading-btn-content">
+          <span class="btn-spinner"></span>
+          Running Multi-Rule Verification...
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
+

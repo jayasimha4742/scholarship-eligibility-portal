@@ -1,0 +1,63 @@
+<header class="navbar-header">
+  <div class="container nav-container">
+    <a routerLink="/" class="nav-brand" (click)="closeMenu()">
+      <div class="brand-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="portal-name">Scholarship Portal</span>
+        <span class="portal-sub">Higher Education Eligibility Discovery</span>
+      </div>
+    </a>
+
+    <!-- Hamburger Menu Toggle (Mobile) -->
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <span class="bar" [class.bar-1-open]="isMenuOpen"></span>
+      <span class="bar" [class.bar-2-open]="isMenuOpen"></span>
+      <span class="bar" [class.bar-3-open]="isMenuOpen"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <nav class="nav-menu" [class.active]="isMenuOpen">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/eligibility-check" routerLinkActive="active" class="highlight-link" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            Check Eligibility
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/scholarships" routerLinkActive="active" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7h10"></path><path d="M7 12h10"></path><path d="M7 17h10"></path></svg>
+            All Scholarships
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/saved" routerLinkActive="active" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>
+            Saved
+            <span class="saved-counter" *ngIf="(savedCount$ | async) as count" [class.has-saved]="count > 0">
+              {{ count }}
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            About
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+

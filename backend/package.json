@@ -1,0 +1,25 @@
+{
+  "name": "scholarship-eligibility-portal-backend",
+  "version": "1.0.0",
+  "description": "Backend REST API for Scholarship Eligibility Portal - Academic Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "scholarship",
+    "eligibility",
+    "portal",
+    "express",
+    "angular",
+    "college-project"
+  ],
+  "author": "Academic Project Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
+

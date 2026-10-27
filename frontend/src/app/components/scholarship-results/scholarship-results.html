@@ -1,0 +1,300 @@
+<div class="container results-page-container">
+  <!-- Page Header -->
+  <div class="results-header">
+    <div>
+      <span class="section-tag">
+        {{ isEvaluationMode ? 'Assessment Results' : 'Scholarship Catalog' }}
+      </span>
+      <h1 class="page-title">
+        {{ isEvaluationMode ? 'Matching Scholarships for Your Profile' : 'Explore All Higher Education Scholarships' }}
+      </h1>
+      <p class="page-sub">
+        {{ isEvaluationMode
+          ? 'Review the detailed rule-by-rule breakdown below. Filter by status or category to focus on suitable schemes.'
+          : 'Browse through merit-based, means-based, category-based, and special state/central scholarship programs.' }}
+      </p>
+    </div>
+
+    <div class="header-action">
+      <a routerLink="/eligibility-check" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+        {{ isEvaluationMode ? 'Re-Evaluate with New Details' : 'Check My Eligibility' }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Evaluation Profile Summary Box (Shows when arriving from the form) -->
+  <div *ngIf="isEvaluationMode && evaluationResponse" class="evaluation-summary-box card">
+    <div class="summary-top">
+      <div class="student-profile-badge">
+        <div class="avatar-icon">🎓</div>
+        <div>
+          <h4>Evaluation for: {{ evaluationResponse.studentSummary.name || 'Student' }}</h4>
+          <p class="profile-details">
+            <span>{{ evaluationResponse.studentSummary.educationLevel }} ({{ evaluationResponse.studentSummary.course }})</span> &bull;
+            <span>State: {{ evaluationResponse.studentSummary.state }}</span> &bull;
+            <span>Score: <strong>{{ evaluationResponse.studentSummary.percentage }}%</strong></span> &bull;
+            <span>Income: <strong>₹{{ evaluationResponse.studentSummary.income | number:'1.0-0' }}</strong></span> &bull;
+            <span>Category: {{ evaluationResponse.studentSummary.socialCategory }}</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Counters -->
+      <div class="metrics-pills">
+        <div class="metric-pill eligible">
+          <span class="count">{{ evaluationResponse.summary.eligibleCount }}</span>
+          <span class="label">Meets Criteria</span>
+        </div>
+        <div class="metric-pill borderline">
+          <span class="count">{{ evaluationResponse.summary.borderlineCount }}</span>
+          <span class="label">May Be Eligible</span>
+        </div>
+        <div class="metric-pill not-eligible">
+          <span class="count">{{ evaluationResponse.summary.notEligibleCount }}</span>
+          <span class="label">Not Eligible</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="preliminary-alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <span>{{ evaluationResponse.disclaimer }}</span>
+    </div>
+  </div>
+
+  <!-- Filter & Search Controls Bar -->
+  <div class="filter-controls-card card">
+    <div class="filter-grid">
+      <!-- Search Input -->
+      <div class="filter-group search-group">
+        <label for="searchQ">Search by Name or Keyword</label>
+        <div class="search-input-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input
+            type="text"
+            id="searchQ"
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="applyFilters()"
+            placeholder="e.g. Pragati, ePASS, Merit..."
+            class="filter-input"
+          />
+        </div>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="filter-group">
+        <label for="filterCategory">Category</label>
+        <select
+          id="filterCategory"
+          [(ngModel)]="selectedCategory"
+          (ngModelChange)="applyFilters()"
+          class="filter-select"
+        >
+          <option *ngFor="let cat of categoriesList" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <!-- Education Level Filter -->
+      <div class="filter-group">
+        <label for="filterLevel">Education Level</label>
+        <select
+          id="filterLevel"
+          [(ngModel)]="selectedEducationLevel"
+          (ngModelChange)="applyFilters()"
+          class="filter-select"
+        >
+          <option *ngFor="let lvl of educationLevelsList" [value]="lvl">{{ lvl }}</option>
+        </select>
+      </div>
+
+      <!-- State Filter -->
+      <div class="filter-group">
+        <label for="filterState">State Scope</label>
+        <select
+          id="filterState"
+          [(ngModel)]="selectedState"
+          (ngModelChange)="applyFilters()"
+          class="filter-select"
+        >
+          <option *ngFor="let st of statesList" [value]="st">{{ st }}</option>
+        </select>
+      </div>
+
+      <!-- Status Filter (Shown only in evaluation mode) -->
+      <div *ngIf="isEvaluationMode" class="filter-group">
+        <label for="filterStatus">Eligibility Status</label>
+        <select
+          id="filterStatus"
+          [(ngModel)]="selectedStatus"
+          (ngModelChange)="applyFilters()"
+          class="filter-select status-select"
+        >
+          <option value="All">All Evaluation Statuses</option>
+          <option value="Meets Listed Criteria">Meets Listed Criteria</option>
+          <option value="May Be Eligible">May Be Eligible</option>
+          <option value="Not Eligible Under Listed Rules">Not Eligible Under Listed Rules</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-footer">
+      <span class="results-count">
+        Showing <strong>{{ filteredList.length }}</strong> of {{ isEvaluationMode ? evaluatedResults.length : allScholarships.length }} scholarships
+      </span>
+      <button class="btn btn-secondary btn-sm" (click)="resetFilters()">
+        Reset All Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading scholarship opportunities...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-banner card">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Empty Results Friendly Message -->
+  <div *ngIf="!isLoading && filteredList.length === 0" class="empty-results-card card">
+    <div class="empty-icon">🔍</div>
+    <h3>No Matching Scholarships Found</h3>
+    <p>
+      We couldn't find any scholarships matching your current filter selections. Try broadening your criteria or resetting the filters.
+    </p>
+    <button class="btn btn-primary" (click)="resetFilters()">
+      Clear Filters & Show All
+    </button>
+  </div>
+
+  <!-- Scholarships Cards List -->
+  <div *ngIf="!isLoading && filteredList.length > 0" class="scholarships-list">
+    <div
+      *ngFor="let item of filteredList"
+      class="scholarship-result-card card"
+      [class.card-meets]="item.evaluation?.status === 'Meets Listed Criteria'"
+      [class.card-borderline]="item.evaluation?.status === 'May Be Eligible'"
+      [class.card-not]="item.evaluation?.status === 'Not Eligible Under Listed Rules'"
+    >
+      <!-- Card Header -->
+      <div class="card-header-row">
+        <div class="tags-left">
+          <span class="category-tag">{{ item.scholarship.category }}</span>
+          <span *ngIf="item.scholarship.isSampleData" class="sample-badge">Sample Data</span>
+
+          <!-- Evaluation Status Badge -->
+          <span
+            *ngIf="item.evaluation"
+            class="status-pill"
+            [class.status-eligible]="item.evaluation.status === 'Meets Listed Criteria'"
+            [class.status-borderline]="item.evaluation.status === 'May Be Eligible'"
+            [class.status-not]="item.evaluation.status === 'Not Eligible Under Listed Rules'"
+          >
+            <span *ngIf="item.evaluation.status === 'Meets Listed Criteria'">✓ Meets Listed Criteria</span>
+            <span *ngIf="item.evaluation.status === 'May Be Eligible'">⚠️ May Be Eligible</span>
+            <span *ngIf="item.evaluation.status === 'Not Eligible Under Listed Rules'">✕ Not Eligible</span>
+          </span>
+        </div>
+
+        <div class="actions-right">
+          <span *ngIf="item.evaluation" class="match-score-badge">
+            Match: {{ item.evaluation.matchScore }}%
+          </span>
+          <button
+            class="bookmark-btn"
+            [class.saved]="bookmarkService.isSaved(item.scholarship.id)"
+            (click)="toggleBookmark($event, item.scholarship.id)"
+            title="Bookmark scholarship"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Info -->
+      <h3 class="scholarship-title">
+        <a [routerLink]="['/scholarships', item.scholarship.id]">{{ item.scholarship.name }}</a>
+      </h3>
+      <p class="scholarship-provider">{{ item.scholarship.provider }}</p>
+      <p class="scholarship-desc">{{ item.scholarship.description }}</p>
+
+      <!-- Specifications Grid -->
+      <div class="specs-grid">
+        <div class="spec-item">
+          <span class="label">Eligible Levels</span>
+          <span class="value">{{ item.scholarship.educationLevels.join(', ') }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="label">Minimum Marks</span>
+          <span class="value">{{ item.scholarship.minimumPercentage }}%</span>
+        </div>
+        <div class="spec-item">
+          <span class="label">Family Income Limit</span>
+          <span class="value">
+            {{ item.scholarship.maximumFamilyIncome ? '₹' + item.scholarship.maximumFamilyIncome.toLocaleString('en-IN') : 'No Limit' }}
+          </span>
+        </div>
+        <div class="spec-item">
+          <span class="label">Eligible States</span>
+          <span class="value">{{ item.scholarship.eligibleStates.join(', ') }}</span>
+        </div>
+        <div class="spec-item full-width">
+          <span class="label">Benefit & Support</span>
+          <span class="value benefit-highlight">{{ item.scholarship.benefit }}</span>
+        </div>
+      </div>
+
+      <!-- Rule Evaluation Breakdown Accordion (If Evaluated) -->
+      <div *ngIf="item.evaluation" class="evaluation-breakdown-box">
+        <button class="accordion-toggle-btn" (click)="toggleExplanation(item.scholarship.id)">
+          <span>
+            <strong>Evaluation Explanation:</strong>
+            {{ item.evaluation.rulesPassed }} of {{ item.evaluation.totalRulesChecked }} criteria passed
+          </span>
+          <span class="accordion-icon">
+            {{ expandedExplanations[item.scholarship.id] ? '▲ Hide Details' : '▼ View Breakdown' }}
+          </span>
+        </button>
+
+        <div *ngIf="expandedExplanations[item.scholarship.id]" class="accordion-content">
+          <ul class="criteria-list">
+            <li *ngFor="let check of item.evaluation.checks" [class.passed]="check.passed" [class.failed]="!check.passed">
+              <div class="check-icon">
+                {{ check.passed ? '✓' : '✕' }}
+              </div>
+              <div class="check-info">
+                <strong>{{ check.criterion }}:</strong>
+                <span>{{ check.detail }}</span>
+              </div>
+            </li>
+          </ul>
+          <div class="preliminary-subnote">
+            {{ item.evaluation.preliminaryNotice }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="card-bottom-actions">
+        <a [routerLink]="['/scholarships', item.scholarship.id]" class="btn btn-outline btn-sm">
+          View Scheme Details &rarr;
+        </a>
+        <a
+          *ngIf="item.scholarship.officialWebsite"
+          [href]="item.scholarship.officialWebsite"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary btn-sm official-btn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Official Portal
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

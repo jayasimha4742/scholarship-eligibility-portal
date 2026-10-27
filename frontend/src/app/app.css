@@ -1,0 +1,4 @@
+.portal-main {
+  min-height: calc(100vh - 72px - 44px - 380px);
+}
+

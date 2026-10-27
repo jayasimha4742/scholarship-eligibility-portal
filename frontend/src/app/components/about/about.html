@@ -1,0 +1,183 @@
+<div class="container about-page-container">
+  <!-- Page Header -->
+  <div class="about-header text-center">
+    <span class="section-tag">Project Overview & Architecture</span>
+    <h1 class="page-title">About Scholarship Eligibility Portal</h1>
+    <p class="page-sub">
+      An educational decision-support platform designed to eliminate financial aid barriers by providing transparent, multi-criteria scholarship discovery.
+    </p>
+  </div>
+
+  <!-- Section 1: Objectives & Purpose -->
+  <div class="about-section card">
+    <div class="section-icon-badge">🎯</div>
+    <div class="section-body">
+      <h2>1. Project Purpose & Academic Objectives</h2>
+      <p>
+        Across India, hundreds of government and philanthropic scholarship schemes remain unutilized simply because students find official guidelines fragmented, convoluted, or overwhelming. Students frequently miss deadlines or waste effort applying for schemes for which they do not meet critical cutoff criteria.
+      </p>
+      <p>
+        The <strong>Scholarship Eligibility Portal</strong> resolves this challenge by creating a single, centralized web application where students can enter their academic credentials and immediately receive a transparent evaluation of which state, national, or private schemes they satisfy.
+      </p>
+      <div class="objectives-grid">
+        <div class="obj-box">
+          <strong>Centralized Discovery</strong>
+          <span>Aggregates central, state (e.g. Telangana ePASS), and foundation scholarships in one responsive interface.</span>
+        </div>
+        <div class="obj-box">
+          <strong>Rule-by-Rule Transparency</strong>
+          <span>Explains exactly why a student qualifies or fails each condition (marks, income, state, quota).</span>
+        </div>
+        <div class="obj-box">
+          <strong>Strict Data Privacy</strong>
+          <span>Never collects Aadhaar numbers, bank account details, or passwords, ensuring complete student privacy.</span>
+        </div>
+        <div class="obj-box">
+          <strong>Safe Official Routing</strong>
+          <span>Directs students directly to verified official government portals (NSP, AICTE, ePASS) with no intermediary fees.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: How the Algorithm Evaluates Eligibility -->
+  <div class="about-section card">
+    <div class="section-icon-badge">⚙️</div>
+    <div class="section-body">
+      <h2>2. How the Eligibility Checker Engine Works</h2>
+      <p>
+        Unlike simplistic keyword search engines, our Express.js backend features a dedicated evaluation service (<code>eligibility.service.js</code>) that performs multi-criteria relational validation for every scholarship record:
+      </p>
+
+      <div class="algorithm-steps">
+        <div class="algo-step">
+          <div class="algo-num">Rule 1</div>
+          <div class="algo-detail">
+            <strong>Education Level & Course Compatibility</strong>
+            <p>Compares student enrollment (e.g. Undergraduate, Diploma, Intermediate) against the scheme's permissible education tiers and courses.</p>
+          </div>
+        </div>
+
+        <div class="algo-step">
+          <div class="algo-num">Rule 2</div>
+          <div class="algo-detail">
+            <strong>Academic Percentage Cutoff</strong>
+            <p>Compares the student's previous examination percentage against the minimum threshold (e.g. 80% for NSP Merit, 50% for ePASS). Marks within 3% of cutoffs are classified as "May Be Eligible" to account for reservation relaxations.</p>
+          </div>
+        </div>
+
+        <div class="algo-step">
+          <div class="algo-num">Rule 3</div>
+          <div class="algo-detail">
+            <strong>Family Income Ceiling Verification</strong>
+            <p>Checks student family income against the scheme's maximum income ceiling (e.g. &le; ₹2,00,000 for ePASS, &le; ₹8,00,000 for AICTE Pragati, or no limit for open merit).</p>
+          </div>
+        </div>
+
+        <div class="algo-step">
+          <div class="algo-num">Rule 4</div>
+          <div class="algo-detail">
+            <strong>Domicile / State Reservation</strong>
+            <p>Validates if the scheme accepts "All India" applicants or requires local state domicile (e.g., Telangana residence).</p>
+          </div>
+        </div>
+
+        <div class="algo-step">
+          <div class="algo-num">Rule 5</div>
+          <div class="algo-detail">
+            <strong>Social Category & Special Quotas</strong>
+            <p>Matches reservations (SC, ST, OBC, EWS, Minority), female-specific STEM grants (AICTE Pragati), and disability support (&ge; 40% certified disability).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-summary-box">
+        <h4>Evaluation Status Definitions:</h4>
+        <ul>
+          <li><span class="status-pill status-eligible">Meets Listed Criteria</span> All configured rules pass without conflict.</li>
+          <li><span class="status-pill status-borderline">May Be Eligible</span> Score or status is borderline, or requires institutional verification.</li>
+          <li><span class="status-pill status-not">Not Eligible Under Listed Rules</span> One or more mandatory requirements (income, marks, or domicile) are violated.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Technologies Used -->
+  <div class="about-section card">
+    <div class="section-icon-badge">💻</div>
+    <div class="section-body">
+      <h2>3. Technologies & Architecture</h2>
+      <p>
+        The application is constructed using a decoupled full-stack architecture with clear separation of concerns between frontend presentation and backend business logic:
+      </p>
+
+      <div class="tech-table-wrapper">
+        <table class="tech-table">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Technology</th>
+              <th>Role & Implementation Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Frontend Framework</strong></td>
+              <td>Angular (TypeScript)</td>
+              <td>Standalone components, Angular Router for SPA navigation, Reactive Forms / Two-way data binding.</td>
+            </tr>
+            <tr>
+              <td><strong>HTTP Client</strong></td>
+              <td>Angular HttpClient</td>
+              <td>Asynchronous REST API consumption using RxJS Observables, error handling and loading indicators.</td>
+            </tr>
+            <tr>
+              <td><strong>UI & Styling</strong></td>
+              <td>HTML5 & Custom CSS3</td>
+              <td>Responsive grid, CSS variables, mobile-first design, color-coded status badges, custom SVG icons.</td>
+            </tr>
+            <tr>
+              <td><strong>Backend Server</strong></td>
+              <td>Node.js & Express.js</td>
+              <td>RESTful API routing, JSON body parsing, CORS middleware, input sanitization and error handlers.</td>
+            </tr>
+            <tr>
+              <td><strong>Business Logic</strong></td>
+              <td>Eligibility Service (JS)</td>
+              <td>Modular multi-rule evaluation engine that ranks and explains scholarship matches.</td>
+            </tr>
+            <tr>
+              <td><strong>Data Storage</strong></td>
+              <td>JSON Database</td>
+              <td>Structured <code>scholarships.json</code> database storing realistic and verified national/state schemes.</td>
+            </tr>
+            <tr>
+              <td><strong>Client Storage</strong></td>
+              <td>Browser LocalStorage</td>
+              <td>Persistent client-side storage for bookmarked scholarships without requiring user accounts or logins.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Academic Disclaimer Banner -->
+  <div class="about-section disclaimer-section card">
+    <div class="section-icon-badge">⚖️</div>
+    <div class="section-body">
+      <h2>4. Academic Demonstration Disclaimer</h2>
+      <p>
+        This software application has been developed purely as a <strong>College Academic Project</strong> for educational demonstration in software engineering, full-stack web development, and algorithms.
+      </p>
+      <p>
+        The eligibility results generated by this website are <em>preliminary simulations</em> intended to assist students in discovering opportunities. The portal does not guarantee receipt of any scholarship, does not disburse funds, and does not replace official government verification. The final award decision is strictly subject to official scrutiny by the designated authorities (National Scholarship Portal, Government of Telangana, AICTE, or private trusts).
+      </p>
+
+      <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <a routerLink="/eligibility-check" class="btn btn-primary">Check Your Eligibility Now &rarr;</a>
+        <a routerLink="/scholarships" class="btn btn-secondary">Browse All Scholarships</a>
+      </div>
+    </div>
+  </div>
+</div>

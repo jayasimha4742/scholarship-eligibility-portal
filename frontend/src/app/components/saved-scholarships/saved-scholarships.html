@@ -1,0 +1,100 @@
+<div class="container saved-page-container">
+  <!-- Header -->
+  <div class="saved-header">
+    <div>
+      <span class="section-tag">Browser Bookmarks</span>
+      <h1 class="page-title">Saved Scholarships</h1>
+      <p class="page-sub">
+        Review scholarships you've bookmarked for later consideration. You can compare deadlines, documents, and jump directly to official application portals.
+      </p>
+    </div>
+
+    <div *ngIf="savedScholarships.length > 0">
+      <button class="btn btn-secondary btn-sm" (click)="clearAll()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+        Clear All Saved
+      </button>
+    </div>
+  </div>
+
+  <!-- LocalStorage Notice Banner -->
+  <div class="storage-notice-card card">
+    <div class="storage-icon">💾</div>
+    <div class="storage-text">
+      <strong>Browser LocalStorage Notice:</strong>
+      <p>
+        These saved scholarship selections are stored locally in your browser's <code>localStorage</code> cache. They remain preserved across page reloads on this machine and are not uploaded to any remote tracking database.
+      </p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading your saved scholarships...</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && savedScholarships.length === 0" class="empty-saved-card card">
+    <div class="empty-icon">📑</div>
+    <h3>No Saved Scholarships Yet</h3>
+    <p>
+      You haven't bookmarked any scholarships yet. Explore our scholarship catalog or run an eligibility check, and click the bookmark icon on any scheme to save it here.
+    </p>
+    <div class="empty-actions">
+      <a routerLink="/scholarships" class="btn btn-primary">Browse All Scholarships</a>
+      <a routerLink="/eligibility-check" class="btn btn-secondary">Check Eligibility</a>
+    </div>
+  </div>
+
+  <!-- Saved Cards Grid -->
+  <div *ngIf="!isLoading && savedScholarships.length > 0" class="saved-grid">
+    <div *ngFor="let item of savedScholarships" class="saved-card card">
+      <div class="saved-card-top">
+        <span class="category-tag">{{ item.category }}</span>
+        <button class="remove-btn" (click)="remove(item.id)" title="Remove from saved list">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          Remove
+        </button>
+      </div>
+
+      <h3 class="saved-title">
+        <a [routerLink]="['/scholarships', item.id]">{{ item.name }}</a>
+      </h3>
+      <p class="saved-provider">{{ item.provider }}</p>
+
+      <div class="saved-specs">
+        <div class="spec-row">
+          <span class="label">Minimum Marks:</span>
+          <span class="val">{{ item.minimumPercentage }}%</span>
+        </div>
+        <div class="spec-row">
+          <span class="label">Income Ceiling:</span>
+          <span class="val">{{ item.maximumFamilyIncome ? '₹' + item.maximumFamilyIncome.toLocaleString('en-IN') : 'No Limit' }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="label">Deadline:</span>
+          <span class="val deadline">{{ item.applicationCloseDate }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="label">Benefit:</span>
+          <span class="val benefit-val">{{ item.benefit }}</span>
+        </div>
+      </div>
+
+      <div class="saved-footer">
+        <a [routerLink]="['/scholarships', item.id]" class="btn btn-outline btn-sm">Full Scheme Details</a>
+        <a
+          *ngIf="item.officialWebsite"
+          [href]="item.officialWebsite"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-sm"
+        >
+          Official Portal &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

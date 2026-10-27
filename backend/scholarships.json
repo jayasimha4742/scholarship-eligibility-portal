@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "name": "Central Sector Scheme of Scholarships for College and University Students",
+    "provider": "Department of Higher Education, Ministry of Education, Govt. of India",
+    "category": "Merit-Based",
+    "description": "Financial assistance to meritorious students from low-income families to meet day-to-day expenses while pursuing higher studies in college and university.",
+    "educationLevels": ["Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "B.Sc", "B.Com", "B.A", "M.Sc", "M.Com", "M.Tech"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 80,
+    "maximumFamilyIncome": 450000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "₹12,000 per annum at Graduation level for first 3 years and ₹20,000 per annum at Post Graduation level",
+    "requiredDocuments": [
+      "Class 12th Board Marksheet showing 80th percentile or above",
+      "Valid Income Certificate issued by competent revenue authority (Tahsildar/MRO)",
+      "Proof of admission in regular college/university course",
+      "Bank Account Passbook seeded with Aadhaar",
+      "Valid Student ID Card"
+    ],
+    "applicationOpenDate": "2026-08-15",
+    "applicationCloseDate": "2026-11-30",
+    "applicationProcess": "1. Register on National Scholarship Portal (NSP). 2. Complete OTR (One Time Registration). 3. Fill academic and income details. 4. Upload verified documents. 5. College verification followed by State Nodal Officer approval.",
+    "officialWebsite": "https://scholarships.gov.in",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "0120-6619540",
+      "email": "helpdesk@nsp.gov.in"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Telangana ePASS Post-Matric Scholarship (RTF & MTF)",
+    "provider": "Government of Telangana (Welfare Departments)",
+    "category": "Category-Based",
+    "description": "Comprehensive fee reimbursement (RTF) and maintenance charges (MTF) for eligible SC, ST, BC, EBC, and Minority students pursuing post-matriculation courses in Telangana.",
+    "educationLevels": ["Intermediate", "Diploma", "Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "Diploma in Engineering", "B.Sc", "B.Com", "MBA", "MCA"],
+    "eligibleStates": ["Telangana"],
+    "minimumPercentage": 50,
+    "maximumFamilyIncome": 200000,
+    "eligibleSocialCategories": ["SC", "ST", "OBC", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Full Tuition Fee Reimbursement (RTF) directly to college + Monthly Maintenance Allowance (MTF) up to ₹20,000/year",
+    "requiredDocuments": [
+      "Telangana Nativity / Domicile Certificate",
+      "Integrated Caste & Sub-caste Certificate issued by MeeSeva",
+      "Valid Income Certificate issued on or after 01-04-2026",
+      "Previous Class / Semester Marksheet",
+      "College Allotment Order and Fee Receipt",
+      "Aadhaar card copy"
+    ],
+    "applicationOpenDate": "2026-07-01",
+    "applicationCloseDate": "2026-12-15",
+    "applicationProcess": "1. Apply online via Telangana ePASS portal. 2. Select Fresh or Renewal application. 3. Enter CET hall ticket number, admission details, and bank account. 4. Submit hard copies along with original certificates to college principal for verification.",
+    "officialWebsite": "https://telanganaepass.cgg.gov.in",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "040-23390228",
+      "email": "help.telanganaepass@cgg.gov.in"
+    }
+  },
+  {
+    "id": 3,
+    "name": "AICTE Pragati Scholarship Scheme for Girl Students",
+    "provider": "All India Council for Technical Education (AICTE)",
+    "category": "Merit-Based",
+    "description": "Empowering young women by providing financial assistance to advance technical education in AICTE-approved institutions across India.",
+    "educationLevels": ["Undergraduate", "Diploma"],
+    "eligibleCourses": ["Engineering / B.Tech", "Diploma in Engineering", "B.Pharmacy", "Architecture"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 60,
+    "maximumFamilyIncome": 800000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "Female Only",
+    "benefit": "₹50,000 per annum for every year of study towards college fee payment, computer, stationery, books, and equipment",
+    "requiredDocuments": [
+      "Admission letter for Degree/Diploma issued by Central/State counseling authority",
+      "Family Income Certificate showing annual income below ₹8 Lakhs",
+      "Marksheet of Qualifying Examination (10th / 10+2)",
+      "Tuition fee receipt",
+      "Declaration by parents regarding girl child quota (maximum 2 girl children per family)"
+    ],
+    "applicationOpenDate": "2026-09-01",
+    "applicationCloseDate": "2026-11-15",
+    "applicationProcess": "1. Register on National Scholarship Portal under AICTE Schemes. 2. Choose Pragati Scheme (Degree or Diploma). 3. Submit academic credentials and father/mother income details. 4. Verification by Institute Nodal Officer.",
+    "officialWebsite": "https://www.aicte-india.org",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-29581000",
+      "email": "pragatisaksham@aicte-india.org"
+    }
+  },
+  {
+    "id": 4,
+    "name": "AICTE Saksham Scholarship Scheme for Specially Abled Students",
+    "provider": "All India Council for Technical Education (AICTE)",
+    "category": "Special",
+    "description": "Dedicated financial support to encourage differently-abled students with disability not less than 40% to pursue professional technical education.",
+    "educationLevels": ["Undergraduate", "Diploma"],
+    "eligibleCourses": ["Engineering / B.Tech", "Diploma in Engineering", "B.Pharmacy", "All Technical Degrees"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 50,
+    "maximumFamilyIncome": 800000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": true,
+    "genderSpecific": "All",
+    "benefit": "₹50,000 per annum for each year of technical study towards tuition, assistive aids, computer, and books",
+    "requiredDocuments": [
+      "Disability Certificate issued by competent Medical Board (minimum 40% disability)",
+      "Admission proof in AICTE approved institution",
+      "Family Income Certificate below ₹8 Lakhs per annum",
+      "Previous qualification marksheet",
+      "Bank Account details seeded with Aadhaar"
+    ],
+    "applicationOpenDate": "2026-09-01",
+    "applicationCloseDate": "2026-11-15",
+    "applicationProcess": "1. Register on National Scholarship Portal (NSP). 2. Submit disability certificate and institutional admission details. 3. Verification by head of institution and AICTE cell.",
+    "officialWebsite": "https://www.aicte-india.org",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-29581000",
+      "email": "pragatisaksham@aicte-india.org"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Reliance Foundation Undergraduate Scholarship",
+    "provider": "Reliance Foundation",
+    "category": "Means-Based",
+    "description": "Supports meritorious undergraduate students from economically disadvantaged backgrounds with grants, leadership training, and strong alumni mentoring.",
+    "educationLevels": ["Undergraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "B.Sc", "B.Com", "B.A"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 60,
+    "maximumFamilyIncome": 250000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Up to ₹2,00,000 total grant over the entire duration of undergraduate study plus mentorship programs",
+    "requiredDocuments": [
+      "Class 12th Board Marksheet",
+      "Bonafide Student Certificate from currently enrolled college",
+      "Family Income Certificate / ITR / Ration card",
+      "Two passport-sized photographs",
+      "Identity and Address proof"
+    ],
+    "applicationOpenDate": "2026-08-01",
+    "applicationCloseDate": "2026-10-15",
+    "applicationProcess": "1. Online application on Reliance Foundation scholarships portal. 2. Aptitude test covering verbal, analytical, and numerical reasoning. 3. Review of academic performance and household income. 4. Announcement of selected scholars.",
+    "officialWebsite": "https://www.scholarships.reliancefoundation.org",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-41182900",
+      "email": "contactus@reliancefoundation.org"
+    }
+  },
+  {
+    "id": 6,
+    "name": "HDFC Bank Parivartan's Educational Crisis Scholarship Support (ECSS)",
+    "provider": "HDFC Bank Corporate Social Responsibility",
+    "category": "Means-Based",
+    "description": "Assists students facing personal, medical, or economic crises to prevent dropouts and ensure uninterrupted education from school to university level.",
+    "educationLevels": ["Intermediate", "Diploma", "Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "B.Sc", "B.Com", "B.A", "M.Sc", "MBA"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 55,
+    "maximumFamilyIncome": 250000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Scholarship grant ranging from ₹35,000 to ₹75,000 depending on course level",
+    "requiredDocuments": [
+      "Previous year marksheet showing at least 55% marks",
+      "Proof of admission (college ID card, fee receipt, or admission letter)",
+      "Proof of family crisis (loss of earning member, critical medical treatment, or job loss)",
+      "Salary slips / Income certificate / Ration Card",
+      "Bank passbook copy"
+    ],
+    "applicationOpenDate": "2026-06-01",
+    "applicationCloseDate": "2026-09-30",
+    "applicationProcess": "1. Apply via CSR partner portal (Buddy4Study). 2. Submit proof of current enrolment and crisis documentation. 3. Telephonic interview and document verification by social impact panel.",
+    "officialWebsite": "https://www.hdfcbank.com",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-43092248",
+      "email": "hdfcbankecss@buddy4study.com"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Post-Matric Scholarship for Students Belonging to Minority Communities",
+    "provider": "Ministry of Minority Affairs, Govt. of India",
+    "category": "Category-Based",
+    "description": "Encouraging higher education among students from notified minority communities (Muslims, Christians, Sikhs, Buddhists, Jains, and Parsis).",
+    "educationLevels": ["Intermediate", "Diploma", "Undergraduate", "Postgraduate", "Ph.D."],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "B.Sc", "B.Com", "B.A", "M.Tech"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 50,
+    "maximumFamilyIncome": 200000,
+    "eligibleSocialCategories": ["Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Admission and course fee up to ₹10,000/annum plus maintenance allowance up to ₹1,200/month",
+    "requiredDocuments": [
+      "Self-declaration of minority community by student",
+      "Annual income certificate below ₹2 Lakhs issued by Revenue Authority",
+      "Marksheet of previous year with not less than 50% aggregate",
+      "Fee receipt of current academic course",
+      "Bank account details"
+    ],
+    "applicationOpenDate": "2026-08-01",
+    "applicationCloseDate": "2026-11-20",
+    "applicationProcess": "1. Apply online through National Scholarship Portal (NSP). 2. Choose Ministry of Minority Affairs section. 3. Upload community self-attestation and academic details.",
+    "officialWebsite": "https://scholarships.gov.in",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "1800-11-2001",
+      "email": "support-minority@gov.in"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Sitaram Jindal Foundation Scholarship Scheme",
+    "provider": "Sitaram Jindal Foundation",
+    "category": "Means-Based",
+    "description": "Charitable educational grants for poor and deserving students across India pursuing general graduation, technical courses, and medical degrees.",
+    "educationLevels": ["Intermediate", "Diploma", "Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "Diploma in Engineering", "B.Sc", "B.Com"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 65,
+    "maximumFamilyIncome": 400000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Monthly stipend of ₹1,400 to ₹3,200 depending on degree and hostel/day-scholar status",
+    "requiredDocuments": [
+      "Marksheet of previous examination (minimum 65% for boys, 60% for girls)",
+      "Income certificate issued by competent authority",
+      "Certificate regarding annual fees from College Principal",
+      "Hostel warden certificate if staying in hostel",
+      "Recommendation letter from college head"
+    ],
+    "applicationOpenDate": "2026-01-01",
+    "applicationCloseDate": "2026-12-31",
+    "applicationProcess": "1. Download official application form from SJF website. 2. Fill in details and get it signed by college principal. 3. Post the hard copy with attested documents to Jindal Nagar Bangalore office.",
+    "officialWebsite": "https://www.sitaramjindalfoundation.org",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "080-23717777",
+      "email": "scholarship@sitaramjindalfoundation.org"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Dr. Ambedkar Post-Matric Scholarship for EBC Students",
+    "provider": "Ministry of Social Justice and Empowerment, Govt. of India",
+    "category": "Category-Based",
+    "description": "Financial assistance to students belonging to Economically Backward Classes (General Category low-income families) for post-matriculation studies.",
+    "educationLevels": ["Undergraduate", "Postgraduate", "Diploma"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "B.Sc", "B.Com", "B.A"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 50,
+    "maximumFamilyIncome": 250000,
+    "eligibleSocialCategories": ["EWS", "General"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Maintenance allowance up to ₹750/month along with reimbursement of compulsory non-refundable fees",
+    "requiredDocuments": [
+      "Income certificate verifying income below ₹2.5 Lakhs",
+      "EWS / Economically Backward Class Certificate",
+      "Previous examination marksheet",
+      "College enrollment proof",
+      "Bank passbook copy"
+    ],
+    "applicationOpenDate": "2026-08-10",
+    "applicationCloseDate": "2026-11-25",
+    "applicationProcess": "1. Submit application on State Scholarship Portal or NSP. 2. Verify through District Social Welfare Officer. 3. Direct Benefit Transfer (DBT) to student account.",
+    "officialWebsite": "https://socialjustice.gov.in",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-23381643",
+      "email": "socialjustice@gov.in"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Adilabad District Merit-cum-Means Academic Assistance Scheme",
+    "provider": "Sample Educational Trust (Adilabad Demonstration)",
+    "category": "Merit-Based",
+    "description": "Sample academic scheme created for college demonstration to illustrate regional eligibility matching for students residing in Adilabad and adjacent districts of Telangana.",
+    "educationLevels": ["Undergraduate", "Diploma"],
+    "eligibleCourses": ["Engineering / B.Tech", "Diploma in Engineering", "B.Sc", "B.Com", "B.A"],
+    "eligibleStates": ["Telangana"],
+    "minimumPercentage": 70,
+    "maximumFamilyIncome": 300000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Sample demonstration grant of ₹25,000 per academic year for books, stationery, and hostel fee subsidy",
+    "requiredDocuments": [
+      "Study certificate issued by institution located in Adilabad / Telangana",
+      "Previous qualifying examination marksheet (minimum 70%)",
+      "MRO certified income certificate",
+      "Domicile / Residence Certificate"
+    ],
+    "applicationOpenDate": "2026-07-15",
+    "applicationCloseDate": "2026-11-10",
+    "applicationProcess": "Demonstration simulated process: 1. Fill student profile on portal. 2. Verification of Adilabad district residence and score. 3. Mock approval simulation.",
+    "officialWebsite": null,
+    "isSampleData": true,
+    "contactInfo": {
+      "helpline": "Demonstration Helpline: 08732-220000",
+      "email": "demo-adilabad@scholarshipportal.edu"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Telangana State STEM Excellence Fellowship for Women",
+    "provider": "Sample Innovation Council (Telangana Demonstration)",
+    "category": "Merit-Based",
+    "description": "Sample demonstration scheme intended to reward female students excelling in Science, Technology, Engineering, and Mathematics courses in Telangana universities.",
+    "educationLevels": ["Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["Engineering / B.Tech", "B.Sc", "M.Sc", "M.Tech"],
+    "eligibleStates": ["Telangana"],
+    "minimumPercentage": 75,
+    "maximumFamilyIncome": 600000,
+    "eligibleSocialCategories": ["General", "OBC", "SC", "ST", "EWS", "Minority"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "Female Only",
+    "benefit": "Sample demonstration grant of ₹40,000 per year towards research project work and technology equipment",
+    "requiredDocuments": [
+      "Marksheet showing minimum 75% aggregate in STEM subjects",
+      "Proof of admission in accredited Telangana institution",
+      "Income declaration certificate",
+      "Statement of purpose / project brief"
+    ],
+    "applicationOpenDate": "2026-08-20",
+    "applicationCloseDate": "2026-11-30",
+    "applicationProcess": "Demonstration simulation: Application submission via college portal with faculty advisor endorsement.",
+    "officialWebsite": null,
+    "isSampleData": true,
+    "contactInfo": {
+      "helpline": "Demonstration Helpline: 040-23001122",
+      "email": "demo-stem@scholarshipportal.edu"
+    }
+  },
+  {
+    "id": 12,
+    "name": "PM-YASASVI Post-Matric Scholarship for OBC, EBC and DNT Students",
+    "provider": "Department of Social Justice and Empowerment, Govt. of India",
+    "category": "Category-Based",
+    "description": "Central government scholarship scheme for OBC, Economically Backward Classes (EBC), and De-notified Nomadic Tribes (DNT) studying at post-matriculation stage.",
+    "educationLevels": ["Intermediate", "Diploma", "Undergraduate", "Postgraduate"],
+    "eligibleCourses": ["All Courses", "Engineering / B.Tech", "Medicine / MBBS", "B.Sc", "B.Com", "B.A"],
+    "eligibleStates": ["All India"],
+    "minimumPercentage": 50,
+    "maximumFamilyIncome": 250000,
+    "eligibleSocialCategories": ["OBC", "EWS"],
+    "disabilityStatusRequired": false,
+    "genderSpecific": "All",
+    "benefit": "Full academic fees plus annual maintenance allowance up to ₹13,500 for hostellers and ₹7,000 for day-scholars",
+    "requiredDocuments": [
+      "Valid Community Certificate (OBC / EBC / DNT)",
+      "Income Certificate from authorized government official (< ₹2.5 Lakh)",
+      "Academic marksheet of previous class",
+      "Fee payment receipt and Bonafide Certificate",
+      "Aadhaar linked bank account"
+    ],
+    "applicationOpenDate": "2026-07-01",
+    "applicationCloseDate": "2026-10-31",
+    "applicationProcess": "1. Register on National Scholarship Portal (NSP). 2. Submit application under PM-YASASVI scheme. 3. Bio-metric authentication and institute level e-verification.",
+    "officialWebsite": "https://scholarships.gov.in",
+    "isSampleData": false,
+    "contactInfo": {
+      "helpline": "011-23382391",
+      "email": "support.yasasvi@gov.in"
+    }
+  }
+]
+

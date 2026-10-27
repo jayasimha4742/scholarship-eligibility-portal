@@ -1,0 +1,499 @@
+.results-page-container {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.page-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 780px;
+}
+
+/* Evaluation Summary Box */
+.evaluation-summary-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+  border: 1.5px solid #86efac;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.summary-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.student-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.student-profile-badge h4 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.profile-details {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.profile-details strong {
+  color: var(--primary-light);
+}
+
+.metrics-pills {
+  display: flex;
+  gap: 12px;
+}
+
+.metric-pill {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+}
+
+.metric-pill .count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.metric-pill .label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.metric-pill.eligible .count { color: var(--status-eligible-text); }
+.metric-pill.eligible { border-color: var(--status-eligible-border); background-color: var(--status-eligible-bg); }
+
+.metric-pill.borderline .count { color: var(--status-borderline-text); }
+.metric-pill.borderline { border-color: var(--status-borderline-border); background-color: var(--status-borderline-bg); }
+
+.metric-pill.not-eligible .count { color: var(--status-not-text); }
+.metric-pill.not-eligible { border-color: var(--status-not-border); background-color: var(--status-not-bg); }
+
+.preliminary-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #1e3a8a;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+}
+
+/* Filter Controls Bar */
+.filter-controls-card {
+  padding: 20px 24px;
+  background: #ffffff;
+  margin-bottom: 30px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-wrapper svg {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+}
+
+.filter-input {
+  width: 100%;
+  padding: 8px 12px 8px 34px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: var(--purple-accent);
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  background: #ffffff;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--purple-accent);
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  padding-top: 12px;
+}
+
+.results-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Empty State */
+.empty-results-card {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.empty-results-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.empty-results-card p {
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 20px auto;
+}
+
+/* Scholarship Cards List */
+.scholarships-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.scholarship-result-card {
+  padding: 28px;
+  background: #ffffff;
+  border-left: 6px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.scholarship-result-card.card-meets {
+  border-left-color: #16a34a;
+}
+
+.scholarship-result-card.card-borderline {
+  border-left-color: #d97706;
+}
+
+.scholarship-result-card.card-not {
+  border-left-color: #dc2626;
+  opacity: 0.85;
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tags-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.match-score-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--purple-soft);
+  color: var(--purple-accent);
+  border: 1px solid var(--purple-border);
+}
+
+.sample-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+
+.bookmark-btn {
+  color: #cbd5e1;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+.bookmark-btn:hover, .bookmark-btn.saved {
+  color: var(--purple-accent);
+}
+
+.scholarship-title {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.scholarship-title a {
+  color: var(--primary);
+}
+
+.scholarship-title a:hover {
+  color: var(--purple-accent);
+}
+
+.scholarship-provider {
+  font-size: 0.88rem;
+  color: var(--purple-accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.scholarship-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Specs Grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: var(--bg-main);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-item.full-width {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-color);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.spec-item .label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.spec-item .value {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.benefit-highlight {
+  color: var(--primary-light) !important;
+  font-weight: 700 !important;
+}
+
+/* Accordion Breakdown */
+.evaluation-breakdown-box {
+  background: #faf5ff;
+  border: 1px solid var(--purple-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.accordion-toggle-btn {
+  width: 100%;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--purple-accent);
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+}
+
+.accordion-toggle-btn:hover {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.accordion-content {
+  padding: 14px 16px;
+  border-top: 1px solid var(--purple-border);
+  background: #ffffff;
+}
+
+.criteria-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.criteria-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.criteria-list li.passed .check-icon {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.criteria-list li.failed .check-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.check-info strong {
+  margin-right: 6px;
+  color: var(--text-main);
+}
+
+.check-info span {
+  color: var(--text-muted);
+}
+
+.preliminary-subnote {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 8px;
+}
+
+/* Card Bottom Actions */
+.card-bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.official-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 992px) {
+  .filter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .specs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
